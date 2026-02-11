@@ -18,11 +18,7 @@ init_db()
 
 @app.get("/")
 def home():
-    try:
-        return {"message": "Search Engine Running"}
-    
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    return {"message": "Search Engine Running"}
 
 
 # Store product API
@@ -31,7 +27,6 @@ def store_product(product: Product):
     
     try:
         product_id = add_product(product)
-        
         return {"productId": product_id}
     
     except Exception as e:
@@ -86,23 +81,17 @@ def view_products():
         )
 
 
-# Search API
+# Search API (FINAL CORRECT ENDPOINT)
 @app.get("/api/v1/search/product")
 def search_products(query: str):
     
     try:
-        if not query or query.strip() == "":
-            raise HTTPException(
-                status_code=400,
-                detail="Query cannot be empty"
-            )
-        
         results = search_products_logic(query)
         
-        return {"data": results}
-    
-    except HTTPException:
-        raise
+        return {
+            "data": results,
+            "count": len(results)
+        }
     
     except Exception as e:
         raise HTTPException(

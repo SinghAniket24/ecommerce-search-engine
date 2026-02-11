@@ -13,8 +13,7 @@ except ImportError:
 
 init_db()
 
-# --- Expanded Configuration ---
-# Broad list of keywords to ensure we hit the 1,000 product mark
+#
 KEYWORDS = [
     "mobile phones", "laptops", "tablets", "smartwatch", "bluetooth speakers",
     "gaming consoles", "monitors", "cameras", "printers", "external hard drive",
