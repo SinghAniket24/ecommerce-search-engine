@@ -61,22 +61,6 @@ Returns top relevant results based on combined score.
 
 ---
 
-## Setup Instructions
-
-Install dependencies:
-
-pip install -r requirements.txt
-
-Run server:
-
-uvicorn main:app --reload
-
-Open API docs:
-
-http://127.0.0.1:8000/docs
-
----
-
 ## Example Queries
 
 /api/v1/search/product?query=iphone  
